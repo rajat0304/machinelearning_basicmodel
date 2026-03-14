@@ -2,6 +2,7 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.svm import SVC
 from sklearn.inspection import DecisionBoundaryDisplay
 import matplotlib.pyplot as plt
+#dataset 
 cancer=load_breast_cancer()
 X=cancer.data[:,:2]
 Y=cancer.target
