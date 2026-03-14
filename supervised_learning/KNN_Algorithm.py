@@ -15,6 +15,7 @@ def knn_prediction(training_data,training_labels,test_point,k):
   return Counter(k_nearest_labels).most_common(1)[0][0]
 
 training_data=[[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8]]
+#random data and random labels 
 training_labels=['A','A','A','A','B','B','C','C']
 test_point=[4,5]
 k=3
