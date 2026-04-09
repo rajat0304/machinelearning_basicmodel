@@ -6,22 +6,24 @@ path = kagglehub.dataset_download("tanishaj225/loancsv")
 print("Path to dataset files:", path)
 
 !unzip archive.zip
-
+## reading the data and annalysing it 
 import pandas as pd
 df = pd.read_csv("loan.csv")
 df.shape
 
 df.head()
+##finding null value to improve data efficency 
 
 df.isnull().sum()
 
 df.dropna(inplace=True)
 
 df = pd.get_dummies(df)
+## seprating features and target
 
 X = df.drop(["Loan_Status_N", "Loan_Status_Y"], axis=1)
 y = df["Loan_Status_Y"]
-
+## loading the model
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -29,12 +31,15 @@ X_train, X_test, y_train, y_test = train_test_split(
     test_size=0.2,
     random_state=42
 )
+##selecting the model 
+##using randomforest algo
 
 from sklearn.ensemble import RandomForestClassifier
 
 model = RandomForestClassifier()
 
 model.fit(X_train, y_train)
+#predictng the output of the model 
 
 from sklearn.metrics import accuracy_score
 
